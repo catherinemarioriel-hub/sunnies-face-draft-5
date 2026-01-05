@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunnies Face Cosmetics</title>
+
+    <!-- Link to existing CSS (unchanged) -->
+    <link rel="stylesheet" href="front-page-style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <strong><h1>SUNNIES FACE</h1></strong>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Collections</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="account-menu" id="accountMenu" style="display:none;">
+    <span id="accountName"></span>
+    <div class="dropdown">
+        <a href="account.html">My Account</a>
+        <a href="purchases.html">My Purchase</a>
+        <a href="#" onclick="logout()">Logout</a>
+        </div>
+    </div>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h2>Redefine Your Beauty</h2>
+            <em>
+                <p>
+                    Discover our premium, lovely-glamorous cosmetics crafted
+                    to elevate your every day glow.
+                </p>
+            </em>
+
+            <!-- SHOP NOW BUTTON -->
+            <a class="btn-primary" id="shopNowBtn">Shop Now</a>
+            <a class="btn-secondary" id="exploreMoreBtn">Explore More</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 SUNNIES FACE Cosmetics — All Rights Reserved.
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        /* Explore More scroll (safe even without categories) */
+        document.getElementById("exploreMoreBtn").addEventListener("click", function () {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
+        });
+
+        /* SHOP NOW LOGIC */
+        document.getElementById("shopNowBtn").addEventListener("click", function () {
+            const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+            if (loggedInUser) {
+                // Logged in → go to categories page
+                window.location.href = "categories.html";
+            } else {
+                // Not logged in → must login first
+                alert("Please log in first to start shopping.");
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+
+<script>
+const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+if (loggedUser) {
+    document.getElementById("accountMenu").style.display = "block";
+    document.getElementById("accountName").textContent = loggedUser.name + " ▾";
+}
+
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    location.href = "front-page.html";
+}
+</script>
+
+
+</body>
+</html>

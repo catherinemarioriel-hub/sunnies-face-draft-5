@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Checkout | Sunnies Face</title>
+<link rel="stylesheet" href="checkout.css">
+</head>
+
+<body>
+
+<button class="back-btn" onclick="location.href='cart.html'">← BACK</button>
+
+<section class="checkout-box">
+    <h3>Delivery Address</h3>
+    <p id="addr"></p>
+
+    <h3>Products Ordered</h3>
+    <div id="items"></div>
+
+    <div class="summary">
+        <p>Merchandise Subtotal: ₱<span id="sub"></span></p>
+        <p>Shipping Subtotal: ₱0</p>
+        <h3>Total Payment: ₱<span id="total"></span></h3>
+    </div>
+
+    <button onclick="placeOrder()">Place Order</button>
+</section>
+
+<script src="checkout.js"></script>
+</body>
+</html>

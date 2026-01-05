@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Receipt | Sunnies Face</title>
+<link rel="stylesheet" href="receipt.css">
+</head>
+
+<body>
+
+<button class="back" onclick="location.href='checkout.html'">← Back</button>
+
+<div class="receipt">
+    <h2>Thank you for your order 💖</h2>
+
+    <div class="section">
+        <div class="section-title">Order Date</div>
+        <div id="date"></div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Delivery Address</div>
+        <div id="address"></div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Items Ordered</div>
+        <div id="items"></div>
+    </div>
+
+    <div class="total">
+        TOTAL: ₱<span id="total"></span>
+    </div>
+</div>
+
+<script>
+const orders = JSON.parse(localStorage.getItem("orders")) || [];
+const lastOrder = orders[orders.length - 1];
+
+document.getElementById("date").textContent = lastOrder.date;
+document.getElementById("address").textContent = lastOrder.address;
+document.getElementById("total").textContent = lastOrder.total;
+
+const itemsDiv = document.getElementById("items");
+
+lastOrder.items.forEach(item => {
+    itemsDiv.innerHTML += `
+        <div class="item">
+            <span>${item.name} × ${item.qty}</span>
+            <span>₱${item.qty * item.price}</span>
+        </div>
+    `;
+});
+</script>
+
+</body>
+</html>

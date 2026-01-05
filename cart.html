@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Your Cart | Sunnies Face</title>
+<link rel="stylesheet" href="cart.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="cart-header">
+    <h1>SUNNIES FACE</h1>
+    <button class="back-btn" onclick="location.href='categories.html'">← BACK</button>
+</header>
+
+<section class="address-box">
+    <div class="address-title">📍 Delivery Address</div>
+    <div class="address-content">
+        <span id="addressText">No address set</span>
+        <button onclick="editAddress()">Change</button>
+    </div>
+</section>
+
+<section id="cartItems" class="cart-container"></section>
+
+<div id="emptyCart" class="empty-cart">
+    <p>Your cart is empty 🛒</p>
+</div>
+
+<footer class="cart-footer">
+    <div></div>
+    <div class="footer-right">
+        <div class="total-box">Total: ₱<span id="cartTotal">0</span></div>
+        <button id="checkoutBtn" onclick="checkout()">Check Out</button>
+    </div>
+</footer>
+
+<script src="cart.js"></script>
+</body>
+</html>

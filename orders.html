@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Order History | Sunnies Face</title>
+<link rel="stylesheet" href="front-page-style.css">
+
+<style>
+body {
+    background: #f6f6f6;
+    font-family: Poppins, sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f2f2f2;
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+}
+
+th {
+    font-size: 14px;
+    color: #666;
+}
+
+tr:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+
+.total {
+    font-weight: 600;
+    color: #b76e79;
+}
+
+.empty {
+    text-align: center;
+    color: #888;
+    padding: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>My Purchases</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Items</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="orderTable"></tbody>
+    </table>
+
+    <div id="empty" class="empty" style="display:none;">
+        You haven’t placed any orders yet.
+    </div>
+</div>
+
+<script>
+const orders = JSON.parse(localStorage.getItem("orders")) || [];
+const table = document.getElementById("orderTable");
+const empty = document.getElementById("empty");
+
+if (orders.length === 0) {
+    empty.style.display = "block";
+} else {
+    orders.forEach(o => {
+        table.innerHTML += `
+            <tr>
+                <td>${o.date}</td>
+                <td>${o.items.length} item(s)</td>
+                <td class="total">₱${o.total}</td>
+            </tr>
+        `;
+    });
+}
+</script>
+
+</body>
+</html>

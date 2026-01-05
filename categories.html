@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Shop | Sunnies Face</title>
+
+<link rel="stylesheet" href="front-page-style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<header class="main-header">
+    <h1>SUNNIES FACE</h1>
+
+    <div class="header-right">
+        <div class="cart-icon" onclick="location.href='cart.html'">
+            🛒 <span id="cartCount">0</span>
+        </div>
+
+        <div class="account-menu" id="accountMenu">
+            <span id="accountName"></span>
+            <div class="dropdown">
+                <a href="account.html">My Account</a>
+                <a href="orders.html">My Purchase</a>
+                <a href="#" onclick="logout()">Logout</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- SEARCH -->
+<section class="category-search">
+    <input type="text" placeholder="Search products...">
+</section>
+
+<!-- CATEGORY SECTION -->
+<section class="category-section">
+    <h2>Lips</h2>
+    <div class="products">
+        <div class="product" onclick="openProduct('Fluffmatte',495,'images/lips1.jpg')">
+            <img src="images/lips1.jpg">
+            <p>Fluffmatte</p>
+            <span>₱495</span>
+        </div>
+        <div class="product" onclick="openProduct('Glidegloss',395,'images/lips2.jpg')">
+            <img src="images/lips2.jpg">
+            <p>Glidegloss</p>
+            <span>₱395</span>
+        </div>
+        <div class="product" onclick="openProduct('Staygloss',345,'images/lips3.jpg')">
+            <img src="images/lips3.jpg">
+            <p>Staygloss</p>
+            <span>₱345</span>
+        </div>
+        <div class="product" onclick="openProduct('Lip Elixir',425,'images/lips4.jpg')">
+            <img src="images/lips4.jpg">
+            <p>Lip Elixir</p>
+            <span>₱425</span>
+        </div>
+        <div class="product" onclick="openProduct('Lip Dip',375,'images/lips5.jpg')">
+            <img src="images/lips5.jpg">
+            <p>Lip Dip</p>
+            <span>₱375</span>
+        </div>
+    </div>
+</section>
+
+<section class="category-section">
+    <h2>Base</h2>
+    <div class="products">
+        <div class="product" onclick="openProduct('Base Booster',695,'images/base1.jpg')">
+            <img src="images/base1.jpg">
+            <p>Base Booster</p>
+            <span>₱695</span>
+        </div>
+        <div class="product" onclick="openProduct('Tinted Moisturizer',495,'images/base2.jpg')">
+            <img src="images/base2.jpg">
+            <p>Tinted Moisturizer</p>
+            <span>₱495</span>
+        </div>
+        <div class="product" onclick="openProduct('The Concealer',545,'images/base3.jpg')">
+            <img src="images/base3.jpg">
+            <p>The Concealer</p>
+            <span>₱545</span>
+        </div>
+        <div class="product" onclick="openProduct('Setting Spray',395,'images/base4.jpg')">
+            <img src="images/base4.jpg">
+            <p>Setting Spray</p>
+            <span>₱395</span>
+        </div>
+        <div class="product" onclick="openProduct('The Powder',595,'images/base5.jpg')">
+            <img src="images/base5.jpg">
+            <p>The Powder</p>
+            <span>₱595</span>
+        </div>
+    </div>
+</section>
+
+<section class="category-section">
+    <h2>Cheeks</h2>
+    <div class="products">
+        <div class="product" onclick="openProduct('Airblush',475,'images/cheeks1.jpg')">
+            <img src="images/cheeks1.jpg">
+            <p>Airblush</p>
+            <span>₱475</span>
+        </div>
+        <div class="product" onclick="openProduct('Blush Duo',525,'images/cheeks2.jpg')">
+            <img src="images/cheeks2.jpg">
+            <p>Blush Duo</p>
+            <span>₱525</span>
+        </div>
+        <div class="product" onclick="openProduct('Blush On',395,'images/cheeks3.jpg')">
+            <img src="images/cheeks3.jpg">
+            <p>Blush On</p>
+            <span>₱395</span>
+        </div>
+        <div class="product" onclick="openProduct('Glow On',445,'images/cheeks4.jpg')">
+            <img src="images/cheeks4.jpg">
+            <p>Glow On</p>
+            <span>₱445</span>
+        </div>
+        <div class="product" onclick="openProduct('Sculpt On',495,'images/cheeks5.jpg')">
+            <img src="images/cheeks5.jpg">
+            <p>Sculpt On</p>
+            <span>₱495</span>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL -->
+<div id="productModal" class="modal">
+    <div class="modal-content">
+        <img id="modalImg">
+        <h4 id="modalName"></h4>
+        <p id="modalPrice"></p>
+
+        <div class="qty-controls">
+            <button onclick="changeQty(-1)">−</button>
+            <input id="qty" type="number" value="1">
+            <button onclick="changeQty(1)">+</button>
+        </div>
+
+        <button class="primary-btn" onclick="addToCart()">Add to Cart</button>
+        <button class="secondary-btn" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script src="shop.js"></script>
+
+<script>
+const user = JSON.parse(localStorage.getItem("loggedInUser"));
+if (user) {
+    document.getElementById("accountName").textContent = user.name + " ▾";
+}
+
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    location.href = "front-page.html";
+}
+</script>
+
+</body>
+</html>

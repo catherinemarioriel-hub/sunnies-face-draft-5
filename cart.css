@@ -1,0 +1,134 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f6f6f6;
+}
+
+/* HEADER */
+.cart-header {
+    background: white;
+    padding: 20px 40px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ADDRESS */
+.address-box {
+    background: white;
+    margin: 20px auto;
+    width: 90%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.address-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.address-content button {
+    background: #9b5c6d;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* CART */
+.cart-container {
+    width: 90%;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    animation: fadeIn 0.4s ease;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 30px 70px 1fr 140px 100px;
+    gap: 10px;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    width: 60px;
+    border-radius: 6px;
+}
+
+.qty-box {
+    display: flex;
+    align-items: center;
+}
+
+.qty-box button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #ccc;
+    background: none;
+}
+
+.qty-box input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.item-total {
+    color: #e64a6a;
+    font-weight: 600;
+}
+
+.remove {
+    cursor: pointer;
+    color: #999;
+}
+
+/* EMPTY */
+.empty-cart {
+    text-align: center;
+    padding: 60px;
+    color: #777;
+    display: none;
+}
+
+/* FOOTER */
+.cart-footer {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding: 15px 40px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#checkoutBtn {
+    background: #e64a6a;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #9b5c6d;
+}
+
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

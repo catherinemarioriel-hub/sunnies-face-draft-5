@@ -1,0 +1,42 @@
+body {
+    background: #f6f6f6;
+    font-family: Poppins, sans-serif;
+}
+
+.account-box {
+    width: 60%;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.info p {
+    margin: 10px 0;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    background: #9b5c6d;
+    color: white;
+    cursor: pointer;
+}
+
+.logout {
+    background: #444;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
